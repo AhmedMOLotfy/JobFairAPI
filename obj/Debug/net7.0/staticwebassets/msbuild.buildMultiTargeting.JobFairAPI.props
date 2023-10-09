@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\JobFairAPI.props" />
+</Project>
