@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using JobFairAPI.Data;
 using JobFairAPI.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -14,25 +10,28 @@ namespace JobFairAPI.Controllers
     public class CandidatesController : ControllerBase
     {
         private readonly DataContext _context;
-        
-        public CandidatesController(DataContext context){
+
+        public CandidatesController(DataContext context)
+        {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CandidatesEntity>>> GetCandidates(){
+        public async Task<ActionResult<IEnumerable<CandidatesEntity>>> GetCandidates()
+        {
             var users = await _context.Candidates.ToListAsync();
             return users;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CandidatesEntity>> GetCandidate(int id){
+        public async Task<ActionResult<CandidatesEntity>> GetCandidate(int id)
+        {
             var user = await _context.Candidates.FindAsync(id);
             return user;
         }
 
     }
 
-    
+
 
 }
