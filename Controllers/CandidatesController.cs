@@ -5,9 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobFairAPI.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")] // api/candidates
-    public class CandidatesController : ControllerBase
+    public class CandidatesController : BaseApiController
     {
         private readonly DataContext _context;
 
