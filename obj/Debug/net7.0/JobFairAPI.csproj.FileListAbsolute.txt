@@ -61,3 +61,11 @@ E:\CVProjects\JobFairAPI\JobFairAPI\obj\Debug\net7.0\refint\JobFairAPI.dll
 E:\CVProjects\JobFairAPI\JobFairAPI\obj\Debug\net7.0\JobFairAPI.pdb
 E:\CVProjects\JobFairAPI\JobFairAPI\obj\Debug\net7.0\JobFairAPI.genruntimeconfig.cache
 E:\CVProjects\JobFairAPI\JobFairAPI\obj\Debug\net7.0\ref\JobFairAPI.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

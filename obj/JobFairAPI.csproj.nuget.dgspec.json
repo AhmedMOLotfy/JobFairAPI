@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\CVProjects\\JobFairAPI\\JobFairAPI\\JobFairAPI.csproj": {}
+    "E:\\CVProjects\\JobFairAPI\\JobFairAPI\\JobFairAPI.csproj": {}
   },
   "projects": {
-    "e:\\CVProjects\\JobFairAPI\\JobFairAPI\\JobFairAPI.csproj": {
+    "E:\\CVProjects\\JobFairAPI\\JobFairAPI\\JobFairAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\CVProjects\\JobFairAPI\\JobFairAPI\\JobFairAPI.csproj",
+        "projectUniqueName": "E:\\CVProjects\\JobFairAPI\\JobFairAPI\\JobFairAPI.csproj",
         "projectName": "JobFairAPI",
-        "projectPath": "e:\\CVProjects\\JobFairAPI\\JobFairAPI\\JobFairAPI.csproj",
+        "projectPath": "E:\\CVProjects\\JobFairAPI\\JobFairAPI\\JobFairAPI.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "e:\\CVProjects\\JobFairAPI\\JobFairAPI\\obj\\",
+        "outputPath": "E:\\CVProjects\\JobFairAPI\\JobFairAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -25,6 +25,8 @@
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,6 +45,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

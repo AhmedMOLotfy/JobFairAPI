@@ -4,7 +4,7 @@ using JobFairAPI.Controllers;
 using JobFairAPI.Data;
 using JobFairAPI.DTOs;
 using JobFairAPI.Entities;
-using JobFairAPI.Services;
+using JobFairAPI.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,15 +13,15 @@ namespace API.Controllers
     public class AccountController : BaseApiController
     {
         private readonly DataContext _context;
-        private readonly TokenService _tokenService;
-        public AccountController(DataContext context, TokenService tokenService)
+        private readonly ITokenService _tokenService;
+        public AccountController(DataContext context, ITokenService tokenService)
         {
             _tokenService = tokenService;
             _context = context;
         }
 
         [HttpPost("register")] // POST: api/account/register?username=dave&password=pwd
-        public async Task<ActionResult<CandidatesEntity>> Register([FromBody] RegisterDto registerDto)
+        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
             if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
 
@@ -37,7 +37,11 @@ namespace API.Controllers
             _context.Candidates.Add(user);
             await _context.SaveChangesAsync();
 
-            return user;
+            return new UserDto
+            {
+                Username = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            };
         }
 
         [HttpPost("login")]

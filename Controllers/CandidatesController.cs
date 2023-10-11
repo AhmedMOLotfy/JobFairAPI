@@ -1,10 +1,12 @@
 using JobFairAPI.Data;
 using JobFairAPI.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobFairAPI.Controllers
 {
+    [Authorize]
     public class CandidatesController : BaseApiController
     {
         private readonly DataContext _context;
@@ -14,6 +16,7 @@ namespace JobFairAPI.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CandidatesEntity>>> GetCandidates()
         {
