@@ -23,12 +23,13 @@ namespace API.Controllers
         [HttpPost("register")] // POST: api/account/register?username=dave&password=pwd
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
+            if (await UserExists(registerDto.Email)) return BadRequest("Email is taken");
 
             using var hmac = new HMACSHA512();
 
             var user = new CandidatesEntity
             {
+                Email = registerDto.Email.ToLower(),
                 UserName = registerDto.Username.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
@@ -39,6 +40,7 @@ namespace API.Controllers
 
             return new UserDto
             {
+                Email = user.Email,
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };
@@ -48,9 +50,9 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _context.Candidates.SingleOrDefaultAsync(x =>
-                x.UserName == loginDto.Username);
+                x.Email == loginDto.Email);
 
-            if (user == null) return Unauthorized("invalid username");
+            if (user == null) return Unauthorized("invalid email");
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
@@ -63,14 +65,14 @@ namespace API.Controllers
 
             return new UserDto
             {
-                Username = user.UserName,
+                Email = user.Email,
                 Token = _tokenService.CreateToken(user)
             };
         }
 
-        private async Task<bool> UserExists(string username)
+        private async Task<bool> UserExists(string email)
         {
-            return await _context.Candidates.AnyAsync(x => x.UserName == username.ToLower());
+            return await _context.Candidates.AnyAsync(x => x.Email == email.ToLower());
         }
     }
 }
