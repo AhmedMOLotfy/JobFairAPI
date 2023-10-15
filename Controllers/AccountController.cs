@@ -46,26 +46,36 @@ namespace API.Controllers
             };
         }
 
+
+
+
         [HttpPost("login")]
-        public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
+        public async Task<ActionResult<UserDto>> Login
+                    (LoginDto loginDto) // recieve email, password
         {
+            // find user which associated with email which is provided
             var user = await _context.Candidates.SingleOrDefaultAsync(x =>
                 x.Email == loginDto.Email);
-
+            
+            // if email is not provided , give unatherized
             if (user == null) return Unauthorized("invalid email");
 
+            // encrypt the password to compare with stored one
             using var hmac = new HMACSHA512(user.PasswordSalt);
-
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
-
             for (int i = 0; i < computedHash.Length; i++)
             {
-                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("invalid password");
+                // if it is not correct, give unatherized
+                if (computedHash[i] != user.PasswordHash[i]) {
+                    return Unauthorized("invalid password");
+                }
             }
 
+            // return user's data {email, Username , secured token}
             return new UserDto
             {
                 Email = user.Email,
+                Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };
         }
