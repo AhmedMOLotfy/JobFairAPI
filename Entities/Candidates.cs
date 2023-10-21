@@ -7,8 +7,11 @@ namespace JobFairAPI.Entities
         public string Email { get; set; }
         public byte[] PasswordHash {get; set;}
         public byte[] PasswordSalt {get; set;}
-
-        // reference to details table
-        public CandidatesDetails details{get; set;}
+        public string JobTitle { get; set; }
+        public string About { get; set; }
+        public string Location { get; set; }
+        public DateOnly DateOfBirth { get; set; }
+        public string Gender { get; set; }
+        public string Phone {get; set;}
     }
 }
