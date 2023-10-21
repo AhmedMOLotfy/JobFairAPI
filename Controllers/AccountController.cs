@@ -8,7 +8,7 @@ using JobFairAPI.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Controllers
+namespace JobFairAPI.Controllers
 {
     public class AccountController : BaseApiController
     {
