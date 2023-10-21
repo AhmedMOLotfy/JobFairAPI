@@ -16,16 +16,15 @@ namespace JobFairAPI.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CandidatesEntity>>> GetCandidates()
+        public async Task<ActionResult<IEnumerable<Candidates>>> GetCandidates()
         {
             var users = await _context.Candidates.ToListAsync();
             return users;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CandidatesEntity>> GetCandidate(int id)
+        public async Task<ActionResult<Candidates>> GetCandidate(int id)
         {
             var user = await _context.Candidates.FindAsync(id);
             return user;

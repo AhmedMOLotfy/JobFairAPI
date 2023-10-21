@@ -27,7 +27,7 @@ namespace JobFairAPI.Controllers
 
             using var hmac = new HMACSHA512();
 
-            var user = new CandidatesEntity
+            var user = new Candidates
             {
                 Email = registerDto.Email.ToLower(),
                 UserName = registerDto.Username.ToLower(),

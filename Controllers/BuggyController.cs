@@ -21,7 +21,7 @@ namespace JobFairAPI.Controllers
         }
 
         [HttpGet("not-found")]
-        public ActionResult<CandidatesEntity> GetNotFound()
+        public ActionResult<Candidates> GetNotFound()
         {
             var thing = _context.Candidates.Find(-1);
 

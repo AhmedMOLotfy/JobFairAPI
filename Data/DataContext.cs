@@ -10,7 +10,7 @@ namespace JobFairAPI.Data
 
         }
 
-        public DbSet<CandidatesEntity> Candidates { get; set; }
+        public DbSet<Candidates> Candidates { get; set; }
 
     }
 }

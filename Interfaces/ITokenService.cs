@@ -4,6 +4,6 @@ namespace JobFairAPI.Interfaces
 {
     public interface ITokenService
     {
-        string CreateToken(CandidatesEntity candidate);
+        string CreateToken(Candidates candidate);
     }
 }
