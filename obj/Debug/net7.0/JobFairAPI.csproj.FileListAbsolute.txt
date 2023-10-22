@@ -69,3 +69,5 @@ E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\System.IdentityModel.Tokens
 E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
 E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\AutoMapper.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,6 +1,5 @@
 using System.Security.Cryptography;
 using System.Text;
-using JobFairAPI.Controllers;
 using JobFairAPI.Data;
 using JobFairAPI.DTOs;
 using JobFairAPI.Entities;

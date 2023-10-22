@@ -1,4 +1,6 @@
+using AutoMapper;
 using JobFairAPI.Data;
+using JobFairAPI.DTOs;
 using JobFairAPI.Entities;
 using JobFairAPI.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -11,23 +13,31 @@ namespace JobFairAPI.Controllers
     public class CandidatesController : BaseApiController
     {
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
-        public CandidatesController(IUserRepository userRepository)
+        public CandidatesController(IUserRepository userRepository, IMapper mapper)
         {
+            _mapper = mapper;
             _userRepository = userRepository;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Candidates>>> GetCandidates()
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetCandidates()
         {
-            return Ok(await _userRepository.GetUsersAsync());
+            var users = await _userRepository.GetUsersAsync();
+
+            // return users in the form of mapper applyed using MemberDto
+            var userToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
+
+            return Ok(userToReturn);
             
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Candidates>> GetCandidateById(int id)
+        public async Task<ActionResult<MemberDto>> GetCandidateById(int id)
         {
-            return await _userRepository.GetUserByIDAsync(id);
+            var user = await _userRepository.GetUserByIDAsync(id);
+            return _mapper.Map<MemberDto>(user);
         }
 
         // [HttpGet("{email}")]
