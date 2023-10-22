@@ -24,26 +24,17 @@ namespace JobFairAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetCandidates()
         {
-            var users = await _userRepository.GetUsersAsync();
+            var users = await _userRepository.GetMembersAsync();
 
-            // return users in the form of mapper applyed using MemberDto
-            var userToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
-
-            return Ok(userToReturn);
+            return Ok(users);
             
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<MemberDto>> GetCandidateById(int id)
+        [HttpGet("{email}")]
+        public async Task<ActionResult<MemberDto>> GetCandidateByEmail(string email)
         {
-            var user = await _userRepository.GetUserByIDAsync(id);
-            return _mapper.Map<MemberDto>(user);
+            return await _userRepository.GetCandidateAsync(email);
         }
-
-        // [HttpGet("{email}")]
-        // public async Task<ActionResult<Candidates>> GetCandidatesByEmail(string ){
-
-        // }
 
     }
 
