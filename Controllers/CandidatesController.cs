@@ -1,5 +1,6 @@
 using JobFairAPI.Data;
 using JobFairAPI.Entities;
+using JobFairAPI.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,26 +10,30 @@ namespace JobFairAPI.Controllers
     [Authorize]
     public class CandidatesController : BaseApiController
     {
-        private readonly DataContext _context;
+        private readonly IUserRepository _userRepository;
 
-        public CandidatesController(DataContext context)
+        public CandidatesController(IUserRepository userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Candidates>>> GetCandidates()
         {
-            var users = await _context.Candidates.ToListAsync();
-            return users;
+            return Ok(await _userRepository.GetUsersAsync());
+            
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Candidates>> GetCandidate(int id)
+        public async Task<ActionResult<Candidates>> GetCandidateById(int id)
         {
-            var user = await _context.Candidates.FindAsync(id);
-            return user;
+            return await _userRepository.GetUserByIDAsync(id);
         }
+
+        // [HttpGet("{email}")]
+        // public async Task<ActionResult<Candidates>> GetCandidatesByEmail(string ){
+
+        // }
 
     }
 

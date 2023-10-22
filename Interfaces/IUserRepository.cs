@@ -9,6 +9,14 @@ namespace JobFairAPI.Interfaces
     public interface IUserRepository
     {
         void Update(Candidates candidates);
-        
+
+        Task<bool> SaveAllAsync();
+
+        Task<IEnumerable<Candidates>> GetUsersAsync();
+
+        Task<Candidates> GetUserByIDAsync(int id);
+
+        Task<Candidates> GetUserByEmailAsync(string email);
+
     }
 }

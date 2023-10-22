@@ -1,3 +1,5 @@
+using JobFairAPI.Extensions;
+
 namespace JobFairAPI.Entities
 {
     public class Candidates
@@ -13,5 +15,9 @@ namespace JobFairAPI.Entities
         public DateOnly DateOfBirth { get; set; }
         public string Gender { get; set; }
         public string Phone {get; set;}
+        public int GetAge(){
+            return DateOfBirth.CalculateAge();
+        }
+
     }
 }
