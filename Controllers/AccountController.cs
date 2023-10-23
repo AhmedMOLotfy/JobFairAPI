@@ -34,7 +34,7 @@ namespace JobFairAPI.Controllers
                 PasswordSalt = hmac.Key
             };
 
-            _context.Candidates.Add(user);
+            await _context.Candidates.AddAsync(user);
             await _context.SaveChangesAsync();
 
             return new UserDto
@@ -44,9 +44,6 @@ namespace JobFairAPI.Controllers
                 Token = _tokenService.CreateToken(user)
             };
         }
-
-
-
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login
