@@ -15,6 +15,7 @@ namespace JobFairAPI.Entities
         public DateOnly? DateOfBirth { get; set; }
         public string Gender { get; set; }
         public string Phone {get; set;}
+        public string PhotoUrl {get; set;}
         public int? GetAge(){
             return DateOfBirth.HasValue? DateOfBirth?.CalculateAge() : null;
         }

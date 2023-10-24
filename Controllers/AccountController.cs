@@ -28,19 +28,19 @@ namespace JobFairAPI.Controllers
 
             var user = new Candidates
             {
-                Email = registerDto.Email.ToLower(),
                 UserName = registerDto.Username.ToLower(),
+                Email = registerDto.Email.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
             };
 
-            await _context.Candidates.AddAsync(user);
+            _context.Candidates.Add(user);
             await _context.SaveChangesAsync();
 
             return new UserDto
             {
-                Email = user.Email,
                 Username = user.UserName,
+                Email = registerDto.Email,
                 Token = _tokenService.CreateToken(user)
             };
         }
