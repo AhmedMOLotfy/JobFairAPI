@@ -19,7 +19,7 @@ namespace JobFairAPI.Controllers
             _context = context;
         }
 
-        [HttpPost("register")] // POST: api/account/register?username=dave&password=pwd
+        [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
             if (await UserExists(registerDto.Email)) return BadRequest("Email is taken");
@@ -28,7 +28,7 @@ namespace JobFairAPI.Controllers
 
             var user = new Candidates
             {
-                UserName = registerDto.Username.ToLower(),
+                FullName = registerDto.FullName.ToLower(),
                 Email = registerDto.Email.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
@@ -39,7 +39,7 @@ namespace JobFairAPI.Controllers
 
             return new UserDto
             {
-                Username = user.UserName,
+                FullName = user.FullName,
                 Email = registerDto.Email,
                 Token = _tokenService.CreateToken(user)
             };
@@ -67,11 +67,11 @@ namespace JobFairAPI.Controllers
                 }
             }
 
-            // return user's data {email, Username , secured token}
+            // return user's data {email, FullName , secured token}
             return new UserDto
             {
                 Email = user.Email,
-                Username = user.UserName,
+                FullName = user.FullName,
                 Token = _tokenService.CreateToken(user)
             };
         }

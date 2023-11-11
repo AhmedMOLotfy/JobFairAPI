@@ -35,7 +35,6 @@ namespace JobFairAPI.Controllers
         {
             return await _userRepository.GetCandidateAsync(email);
         }
-
     }
 
 

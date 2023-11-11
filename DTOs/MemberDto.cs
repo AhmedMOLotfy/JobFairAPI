@@ -8,7 +8,7 @@ namespace JobFairAPI.DTOs
     public class MemberDto
     {
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string FullName { get; set; }
         public string Email { get; set; }
         public string JobTitle { get; set; }
         public string About { get; set; }
@@ -17,5 +17,6 @@ namespace JobFairAPI.DTOs
         public string Gender { get; set; }
         public string Phone {get; set;}
         public string PhotoUrl {get; set;}
+        public string Cv{get; set;}
     }
 }
