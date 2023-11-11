@@ -71,3 +71,5 @@ E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Pro
 E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\AutoMapper.dll
 E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\CloudinaryDotNet.dll
+E:\CVProjects\JobFairAPI\JobFairAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
