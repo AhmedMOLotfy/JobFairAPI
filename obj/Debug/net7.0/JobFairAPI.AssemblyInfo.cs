@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JobFairAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65089c9160b7bd30c264aac8d3d04ba6b43c0359")]
 [assembly: System.Reflection.AssemblyProductAttribute("JobFairAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JobFairAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
